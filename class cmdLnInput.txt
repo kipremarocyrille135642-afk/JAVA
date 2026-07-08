@@ -1,0 +1,8 @@
+class cmdLnInput
+{
+   public static void main(String args[])
+   {
+   int a = Integer.parseInt(arg[0]);
+  system.out.println("Argument : " + args[]);
+ }
+}
