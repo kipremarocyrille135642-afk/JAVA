@@ -1,0 +1,85 @@
+
+SQL> CREATE TABLE RESULT (
+  2      Rollno NUMBER(5) PRIMARY KEY,
+  3      Name VARCHAR2(30),
+  4      Sub1 NUMBER(3),
+  5      Sub2 NUMBER(3),
+  6      Sub3 NUMBER(3),
+  7      Sub4 NUMBER(3),
+  8      Sub5 NUMBER(3),
+  9      Total NUMBER(4),
+ 10      Per NUMBER(5,2),
+ 11      Grade VARCHAR2(2)
+ 12  );
+CREATE TABLE RESULT (
+             *
+ERREUR Ó la ligne 1 :
+ORA-00955: ce nom d'objet existe dÚjÓ
+
+
+SQL> INSERT INTO RESULT
+  2  VALUES (101, 'MARO', 80, 75, 90, 85, 70, 400, 80.00, 'A');
+
+1 ligne crÚÚe.
+
+SQL> INSERT INTO RESULT
+  2  VALUES (102, 'Priya', 65, 70, 60, 75, 80, 350, 70.00, 'B');
+
+1 ligne crÚÚe.
+
+SQL> INSERT INTO RESULT
+  2  VALUES (103, 'Amit', 50, 55, 45, 60, 65, 275, 55.00, 'C');
+
+1 ligne crÚÚe.
+
+SQL> INSERT INTO RESULT
+  2  VALUES (104, 'Neha', 40, 35, 45, 50, 55, 225, 45.00, 'D');
+
+1 ligne crÚÚe.
+
+SQL> INSERT INTO RESULT
+  2  VALUES (1O5, 'Rohan', 20, 30, 25, 35, 40, 150, 30.00, 'F');
+VALUES (1O5, 'Rohan', 20, 30, 25, 35, 40, 150, 30.00, 'F')
+         *
+ERREUR Ó la ligne 2 :
+ORA-00917: virgule absente
+
+
+SQL> INSERT INTO RESULT
+  2  VALUES (105, 'Rohan', 20, 30, 25, 35, 40, 150, 30.00, 'F');
+
+1 ligne crÚÚe.
+
+SQL> COMMIT;
+
+Validation effectuÚe.
+
+SQL>
+SQL> SELECT * FROM RESULT;
+
+    ROLLNO NAME                                                     SUB1
+---------- -------------------------------------------------- ----------
+      SUB2       SUB3       SUB4       SUB5      TOTAL        PER GR
+---------- ---------- ---------- ---------- ---------- ---------- --
+       101 MARO                                                       80
+        75         90         85         70        400         80 A
+
+       102 Priya                                                      65
+        70         60         75         80        350         70 B
+
+       103 Amit                                                       50
+        55         45         60         65        275         55 C
+
+
+    ROLLNO NAME                                                     SUB1
+---------- -------------------------------------------------- ----------
+      SUB2       SUB3       SUB4       SUB5      TOTAL        PER GR
+---------- ---------- ---------- ---------- ---------- ---------- --
+       104 Neha                                                       40
+        35         45         50         55        225         45 D
+
+       105 Rohan                                                      20
+        30         25         35         40        150         30 F
+
+
+SQL>
