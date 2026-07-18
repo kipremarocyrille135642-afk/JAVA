@@ -1,0 +1,27 @@
+/* Write a java program to use Multiple inheritance using interface*\
+
+interface A {
+    void msg1();
+}
+
+interface B {
+    void msg2();
+}
+
+class C implements A, B {
+    public void msg1() {
+        System.out.println("Hello from A");
+    }
+
+    public void msg2() {
+        System.out.println("Welcome from B");
+    }
+}
+
+public class MultipleInheritanceDemo {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.msg1();
+        obj.msg2();
+    }
+}

@@ -1,0 +1,21 @@
+/* Write a java program to implement Arithmetic Exception*\
+
+class Calculator {
+    static void divide(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        System.out.println("Result = " + (a / b));
+    }
+}
+
+public class ArithmeticExceptionDemo3 {
+    public static void main(String[] args) {
+        try {
+            Calculator.divide(10, 2);
+            Calculator.divide(10, 0);
+        } catch (ArithmeticException e) {
+            System.out.println("Exception caught : " + e.getMessage());
+        }
+    }
+}

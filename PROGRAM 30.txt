@@ -1,0 +1,27 @@
+/*Write a java program to implement Exception Chaining*\
+
+class TestException extends Exception {
+    TestException(String msg, Throwable cause) {
+        super(msg, cause);
+    }
+}
+
+public class ExceptionChainingDemo {
+
+    static void process() throws TestException {
+        try {
+            int data = 50 / 0;
+        } catch (ArithmeticException e) {
+            throw new TestException("Other IOException", e);
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            process();
+        } catch (TestException e) {
+            System.out.println("Exception caught : " + e.getMessage());
+            System.out.println("Caused by : " + e.getCause());
+        }
+    }
+}

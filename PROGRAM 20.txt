@@ -1,0 +1,41 @@
+/* Write a java program to perform overriding of abstract class*\
+
+abstract class Shape {
+    abstract void draw();
+
+    void info() {
+        System.out.println("This is a shape");
+    }
+}
+
+class Circle extends Shape {
+    void draw() {
+        System.out.println("Drawing a Circle");
+    }
+}
+
+class Square extends Shape {
+    void draw() {
+        System.out.println("Drawing a Square");
+    }
+}
+
+class Triangle extends Shape {
+    void draw() {
+        System.out.println("Drawing a Triangle");
+    }
+}
+
+public class AbstractOverridingDemo {
+    public static void main(String[] args) {
+        Shape s1 = new Circle();
+        Shape s2 = new Square();
+        Shape s3 = new Triangle();
+
+        s1.draw();
+        s2.draw();
+        s3.draw();
+
+        s1.info();
+    }
+}

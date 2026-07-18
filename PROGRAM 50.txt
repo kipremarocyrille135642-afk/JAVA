@@ -1,0 +1,44 @@
+/* Write a JDBC program to Update and Delete Records Into Oracle Table
+Using Prepared Statement*\
+
+import java.sql.*;
+
+public class UpdateDeleteRecord {
+    public static void main(String[] args) {
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+
+            con = DriverManager.getConnection(
+                "jdbc:oracle:thin:@localhost:1521:xe",
+                "system",
+                "password"
+            );
+
+            // Update Record
+            String updateQuery = "UPDATE student SET name = ?, age = ? WHERE id = ?";
+            ps = con.prepareStatement(updateQuery);
+            ps.setString(1, "Rahul Kumar");
+            ps.setInt(2, 21);
+            ps.setInt(3, 1);
+
+            int update = ps.executeUpdate();
+            System.out.println(update + " record updated.");
+
+            // Delete Record
+            String deleteQuery = "DELETE FROM student WHERE id = ?";
+            ps = con.prepareStatement(deleteQuery);
+            ps.setInt(1, 2);
+
+            int delete = ps.executeUpdate();
+            System.out.println(delete + " record deleted.");
+
+            con.close();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}

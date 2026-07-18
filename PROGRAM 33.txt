@@ -1,0 +1,21 @@
+/*Write a java program to use Local Inner Class*\
+
+public class LocalInnerClassDemo {
+    void display() {
+        int x = 10;
+
+        class Local {
+            void show() {
+                System.out.println("Local Inner Class, x = " + x);
+            }
+        }
+
+        Local local = new Local();
+        local.show();
+    }
+
+    public static void main(String[] args) {
+        LocalInnerClassDemo obj = new LocalInnerClassDemo();
+        obj.display();
+    }
+}

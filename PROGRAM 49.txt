@@ -1,0 +1,49 @@
+/*Write a JDBC program to Display Records Into Oracle Table Using
+Prepared
+Statement.*\
+
+import java.sql.*;
+
+public class DisplayRecords {
+    public static void main(String[] args) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+
+            con = DriverManager.getConnection(
+                "jdbc:oracle:thin:@localhost:1521:xe",
+                "system",
+                "password"
+            );
+
+            String sql = "SELECT * FROM student";
+            ps = con.prepareStatement(sql);
+
+            rs = ps.executeQuery();
+
+            System.out.println("ID\tName\tAge");
+
+            while (rs.next()) {
+                System.out.println(
+                    rs.getInt("id") + "\t" +
+                    rs.getString("name") + "\t" +
+                    rs.getInt("age")
+                );
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (con != null) con.close();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }
+}

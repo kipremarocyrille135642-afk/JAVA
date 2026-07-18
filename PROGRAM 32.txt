@@ -1,0 +1,21 @@
+/*Write a java program to use Static Inner Class*\
+
+class Outer {
+    static int x = 10;
+
+    static class Inner {
+        int y = 20;
+
+        void display() {
+            System.out.println("Outer x = " + x);
+            System.out.println("Inner y = " + y);
+        }
+    }
+}
+
+public class StaticInnerClassDemo {
+    public static void main(String[] args) {
+        Outer.Inner inner = new Outer.Inner();
+        inner.display();
+    }
+}

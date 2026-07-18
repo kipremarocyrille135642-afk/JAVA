@@ -1,0 +1,33 @@
+/*Write a java program to use method overriding*\
+class Abc {
+    int x;
+
+    Abc(int x) {
+        this.x = x;
+    }
+
+    void display() {
+        System.out.println("Output From Base Class x = " + x);
+    }
+}
+
+class Xyz extends Abc {
+    int y;
+
+    Xyz(int x, int y) {
+        super(x);
+        this.y = y;
+    }
+
+    void display() {
+        System.out.println("Output From Derived Class x = " + x + " y = " + y);
+        super.display();
+    }
+}
+
+public class MethodOverridingDemo {
+    public static void main(String[] args) {
+        Xyz p1 = new Xyz(100, 200);
+        p1.display();
+    }
+}

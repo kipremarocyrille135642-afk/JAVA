@@ -1,0 +1,42 @@
+/* Write a JDBC program to Insert Records Into Oracle Table Using Prepared
+Statement*\
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class PreparedStatementInsertDemo2 {
+    public static void main(String[] args) {
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String user = "system";
+        String password = "your_password";
+        String query = "INSERT INTO Student (id, name, age) VALUES (?, ?, ?)";
+
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Scanner sc = new Scanner(System.in);
+
+            try (Connection con = DriverManager.getConnection(url, user, password);
+                 PreparedStatement pstmt = con.prepareStatement(query)) {
+
+                System.out.print("Enter ID : ");
+                int id = sc.nextInt();
+                System.out.print("Enter Name : ");
+                String name = sc.next();
+                System.out.print("Enter Age : ");
+                int age = sc.nextInt();
+
+                pstmt.setInt(1, id);
+                pstmt.setString(2, name);
+                pstmt.setInt(3, age);
+
+                int rows = pstmt.executeUpdate();
+                System.out.println(rows + " row(s) inserted successfully.");
+            }
+
+        } catch (ClassNotFoundException e) {
+            System.out.println("Driver not found : " + e);
+        } catch (SQLException e) {
+            System.out.println("SQL Exception : " + e);
+        }
+    }
+}

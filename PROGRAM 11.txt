@@ -1,0 +1,29 @@
+	/*Write a java program to use Interface in java*\
+
+
+interface Area {
+    float pi = 3.14f;
+    float compute(float x, float y);
+}
+
+class Rectangle implements Area {
+    public float compute(float x, float y) {
+        return (x * y);
+    }
+}
+
+class Circle implements Area {
+    public float compute(float x, float y) {
+        return (pi * x * x);
+    }
+}
+
+public class InterfaceDemo {
+    public static void main(String[] args) {
+        Rectangle r1 = new Rectangle();
+        Circle c1 = new Circle();
+
+        System.out.println("Area of Rectangle = " + r1.compute(10.0f, 20.0f));
+        System.out.println("Area of Circle = " + c1.compute(10.0f, 0.0f));
+    }
+}

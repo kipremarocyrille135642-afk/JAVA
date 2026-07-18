@@ -1,0 +1,32 @@
+/*Write a JDBC program to Update data into Oracle Table*\
+
+import java.sql.*;
+
+public class OracleUpdateDemo2 {
+    public static void main(String[] args) {
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String user = "system";
+        String password = "your_password";
+        String query = "UPDATE Student SET name = ?, age = ? WHERE id = ?";
+
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+
+            try (Connection con = DriverManager.getConnection(url, user, password);
+                 PreparedStatement pstmt = con.prepareStatement(query)) {
+
+                pstmt.setString(1, "Karan Updated");
+                pstmt.setInt(2, 25);
+                pstmt.setInt(3, 1);
+
+                int rows = pstmt.executeUpdate();
+                System.out.println(rows + " row(s) updated successfully.");
+            }
+
+        } catch (ClassNotFoundException e) {
+            System.out.println("Driver not found : " + e);
+        } catch (SQLException e) {
+            System.out.println("SQL Exception : " + e);
+        }
+    }
+}

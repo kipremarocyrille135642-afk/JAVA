@@ -1,0 +1,20 @@
+/*Write a java program to use Nested Interface*\
+
+class Outer {
+    interface Inner {
+        void show();
+    }
+}
+
+class InnerImpl implements Outer.Inner {
+    public void show() {
+        System.out.println("Nested Interface implemented");
+    }
+}
+
+public class NestedInterfaceDemo {
+    public static void main(String[] args) {
+        Outer.Inner obj = new InnerImpl();
+        obj.show();
+    }
+}

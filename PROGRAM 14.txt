@@ -1,0 +1,56 @@
+/*Write a java program to use multilevel inheritance*\
+
+class Stud {
+    int r;
+    String n;
+
+    void getData(int r, String n) {
+        this.r = r;
+        this.n = n;
+    }
+
+    void putData() {
+        System.out.println("Roll Number : " + r);
+        System.out.println("Name is : " + n);
+    }
+}
+
+class Marks extends Stud {
+    int m1, m2, m3;
+
+    void getMarks(int s1, int s2, int s3) {
+        m1 = s1;
+        m2 = s2;
+        m3 = s3;
+    }
+
+    void putMarks() {
+        System.out.println("Marks 1 : " + m1);
+        System.out.println("Marks 2 : " + m2);
+        System.out.println("Marks 3 : " + m3);
+    }
+}
+
+class Total extends Marks {
+    int tot = 0;
+
+    void cal() {
+        tot = m1 + m2 + m3;
+    }
+
+    void putTot() {
+        putData();
+        putMarks();
+        System.out.println("Total is : " + tot);
+    }
+}
+
+public class MultilevelInheritanceDemo {
+    public static void main(String[] args) {
+        Total t = new Total();
+        t.getData(1, "Abc");
+        t.getMarks(50, 50, 50);
+        t.cal();
+        t.putTot();
+    }
+}

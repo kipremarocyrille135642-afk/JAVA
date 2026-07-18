@@ -1,0 +1,25 @@
+/* Write a java program to extend one interface into another interface
+*\
+
+interface ItemConstants {
+    int code = 1001;
+    String name = "Fan";
+}
+
+interface Item extends ItemConstants {
+    void display();
+}
+
+class Product implements Item {
+    public void display() {
+        System.out.println("Item Code = " + code);
+        System.out.println("Item Name = " + name);
+    }
+}
+
+public class ExtendInterfaceDemo {
+    public static void main(String[] args) {
+        Product p1 = new Product();
+        p1.display();
+    }
+}

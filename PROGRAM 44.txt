@@ -1,0 +1,31 @@
+/*Write a JDBC program to Insert data into Oracle Table*\
+
+import java.sql.*;
+
+public class OracleInsertDemo2 {
+    public static void main(String[] args) {
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String user = "system";
+        String password = "your_password";
+
+        String query = "INSERT INTO Student (id, name, age) VALUES (?, ?, ?)";
+
+        try (Connection con = DriverManager.getConnection(url, user, password);
+             PreparedStatement pstmt = con.prepareStatement(query)) {
+
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+
+            pstmt.setInt(1, 2);
+            pstmt.setString(2, "Aryan");
+            pstmt.setInt(3, 23);
+
+            int rows = pstmt.executeUpdate();
+            System.out.println(rows + " row(s) inserted successfully.");
+
+        } catch (ClassNotFoundException e) {
+            System.out.println("Driver not found : " + e);
+        } catch (SQLException e) {
+            System.out.println("SQL Exception : " + e);
+        }
+    }
+}

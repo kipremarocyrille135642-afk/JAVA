@@ -1,0 +1,30 @@
+/* Write a JDBC program to Delete data into Oracle Table*\
+
+import java.sql.*;
+
+public class OracleDeleteDemo2 {
+    public static void main(String[] args) {
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String user = "system";
+        String password = "your_password";
+        String query = "DELETE FROM Student WHERE id = ?";
+
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+
+            try (Connection con = DriverManager.getConnection(url, user, password);
+                 PreparedStatement pstmt = con.prepareStatement(query)) {
+
+                pstmt.setInt(1, 2);
+
+                int rows = pstmt.executeUpdate();
+                System.out.println(rows + " row(s) deleted successfully.");
+            }
+
+        } catch (ClassNotFoundException e) {
+            System.out.println("Driver not found : " + e);
+        } catch (SQLException e) {
+            System.out.println("SQL Exception : " + e);
+        }
+    }
+}

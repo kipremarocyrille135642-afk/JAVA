@@ -1,0 +1,18 @@
+/*Write a java program to use Throws Keyword*\
+
+import java.io.*;
+
+public class ThrowsDemo {
+    public static void main(String[] args) throws IOException, ArithmeticException {
+        int a = 0, b = 0, sum = 0;
+        DataInputStream dis = new DataInputStream(System.in);
+
+        System.out.print("Enter Value 1 : ");
+        a = Integer.parseInt(dis.readLine());
+        System.out.print("Enter Value 2 : ");
+        b = Integer.parseInt(dis.readLine());
+
+        sum = a + b;
+        System.out.println("Sum is : " + sum);
+    }
+}

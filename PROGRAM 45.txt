@@ -1,0 +1,54 @@
+/*Write a JDBC program to Display data into Oracle Table*\
+
+import java.sql.*;
+
+public class OracleSelectDemo {
+    public static void main(String[] args) {
+        Connection con = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            // 1. Charger le driver Oracle JDBC
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+
+            // 2. Établir la connexion
+            con = DriverManager.getConnection(
+                    "jdbc:oracle:thin:@localhost:1521:xe",
+                    "system",
+                    "your_password"
+            );
+
+            // 3. Créer un Statement
+            stmt = con.createStatement();
+
+            // 4. Exécuter la requête SELECT
+            rs = stmt.executeQuery("SELECT * FROM Student");
+
+            // 5. Parcourir et afficher les résultats
+            System.out.println("ID\tName\t\tAge");
+            System.out.println("---------------------------");
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                int age = rs.getInt("age");
+
+                System.out.println(id + "\t" + name + "\t\t" + age);
+            }
+
+        } catch (ClassNotFoundException e) {
+            System.out.println("Driver not found : " + e);
+        } catch (SQLException e) {
+            System.out.println("SQL Exception : " + e);
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (stmt != null) stmt.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                System.out.println("Error closing resources : " + e);
+            }
+        }
+    }
+}

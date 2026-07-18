@@ -1,0 +1,27 @@
+/*Write a java program to use Abstract class*\
+
+abstract class Bike {
+    abstract void runBike();
+}
+
+class Honda extends Bike {
+    void runBike() {
+        System.out.println("Running safely...");
+    }
+}
+
+class Yamaha extends Bike {
+    void runBike() {
+        System.out.println("Running fast...");
+    }
+}
+
+public class AbstractClassDemo {
+    public static void main(String[] args) {
+        Honda obj1 = new Honda();
+        obj1.runBike();
+
+        Yamaha obj2 = new Yamaha();
+        obj2.runBike();
+    }
+}
